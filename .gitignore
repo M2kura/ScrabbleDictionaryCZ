@@ -1,0 +1,6 @@
+data/raw/
+data/work/
+__pycache__/
+*.pyc
+data/scrabble.db
+data/scrabble.db.tmp

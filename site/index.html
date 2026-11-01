@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Český scrabble slovník</title>
+<meta name="description" content="Ověřte, jestli je slovo platné ve hře Scrabble. Miliony českých slov ve všech tvarech z pěti otevřených slovníků.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap&subset=latin-ext" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>Český scrabble slovník</h1>
+    <p class="lede">Napište slovo a hned uvidíte, jestli platí. Víc slov z jednoho tahu oddělte mezerou.</p>
+  </header>
+
+  <form id="search" autocomplete="off" role="search">
+    <label for="q" class="visually-hidden">Slovo</label>
+    <input id="q" name="q" type="search" spellcheck="false" autocapitalize="off" autocorrect="off"
+           placeholder="napište slovo" maxlength="200" autofocus>
+    <div id="tiles" class="tiles" aria-hidden="true"></div>
+  </form>
+
+  <fieldset class="mode">
+    <legend>Co počítat jako platné</legend>
+    <label><input type="radio" name="mode" value="0"><span>Jen spisovné</span></label>
+    <label><input type="radio" name="mode" value="1" checked><span>I zastaralé</span></label>
+    <label><input type="radio" name="mode" value="2"><span>I hovorové</span></label>
+  </fieldset>
+
+  <section id="result" aria-live="polite"></section>
+
+  <footer>
+    <h2>Odkud slova jsou</h2>
+    <p>Slovník spojuje pět otevřených zdrojů. Slovo je v aplikaci, pokud ho obsahuje aspoň jeden z nich. Čím víc zdrojů slovo zná, tím je jistější.</p>
+    <ul class="sources">
+      <li><a href="http://hdl.handle.net/11234/1-5833">MorfFlex CZ 2.1</a> – morfologický slovník ÚFAL MFF UK, přes 100 milionů tvarů (CC BY-NC-SA 4.0)</li>
+      <li><a href="https://github.com/LibreOffice/dictionaries/tree/master/cs_CZ">Hunspell cs_CZ</a> – kontrola pravopisu z LibreOffice, aktualizovaná 2021 (GPL)</li>
+      <li><a href="https://cs.wiktionary.org/">Wikislovník</a> – české heslo a skloňovací tabulky (CC BY-SA 4.0, přes <a href="https://kaikki.org/">kaikki.org</a>)</li>
+      <li><a href="https://en.wiktionary.org/wiki/Category:Czech_language">Anglický Wiktionary</a> – česká hesla a tvary (CC BY-SA 4.0, přes kaikki.org)</li>
+      <li><a href="https://www.wikidata.org/wiki/Wikidata:Lexicographical_data">Wikidata</a> – české lexémy (CC0)</li>
+    </ul>
+    <p id="stats"></p>
+    <p class="fine">Neoficiální pomůcka. Vlastní jména a zkratky nejsou zahrnuté. Slova mají 2 až 15 písmen. Q a W v české sadě nejsou, hrají se žolíkem.</p>
+  </footer>
+</main>
+<script src="app.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# Build the database first: ./scripts/build.sh  (writes data/scrabble.db)
+# Then:                      docker compose up -d --build
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      # localhost only - published at m2kura.dev/scrabble through Caddy
+      - "127.0.0.1:${APP_PORT:-3003}:8000"
+    volumes:
+      - ./data/scrabble.db:/data/scrabble.db:ro
